@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lang>
+    <menu>  
+        <var name="faqpia">FAQPia</var>
+        <var name="faqpia_add">Add New Question</var>
+        <mostbutton>
+            <var param="FaqpiaPageContentsList">Add New Question</var>
+            <var param="FaqpiaPageAddContents">Add New Question</var>
+        </mostbutton>
+    </menu>
     <var name="lang">Language</var>
     <var name="name">English</var>
 </lang>
+
+

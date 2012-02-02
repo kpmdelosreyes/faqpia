@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+    <adminmenus>
+        <menu name="FAQPia" lang="faqpia" param="FaqpiaPageContentsList" use_most_action="Y">
+            <page lang="faqpia" param="FaqpiaPageAddContents" use_most_action="Y" /> 
+            <page lang="faqpia" param="FaqpiaPageModifyContents" use_most_action="Y" /> 
+        </menu>
+    </adminmenus>
