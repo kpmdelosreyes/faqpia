@@ -63,10 +63,10 @@
                     <th class="chk"><input type="checkbox" class="input_chk chk_all" onchange="javascript: adminPageContentsList.checkAll(this);"/></th>
                     <th width="10px">No.</th>
                     <th width="200px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=category&sort='.$catClass1 ;?>" class="<?php echo $catClass;?>">Category</a></th>
-                    <th><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=question&sort='.$catClass1 ;?>" class="<?php echo $catClass;?>">Question</a></th>
-                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=status&sort='.$catClass1;?>" class="<?php echo $catClass;?>">Status</a></th>
-                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_created&sort=' .$catClass1;?>" class="<?php echo $catClass;?>">Date Posted</a></th>
-                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_modified&sort='.$catClass1;?>" class="<?php echo $catClass;?>">Last Modified</a></th>
+                    <th><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=question&sort='.$catClass1 ;?>" class="<?php echo $questionClass;?>">Question</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=status&sort='.$catClass1;?>" class="<?php echo $statusClass;?>">Status</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_created&sort=' .$catClass1;?>" class="<?php echo $dateClass;?>">Date Posted</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_modified&sort='.$catClass1;?>" class="<?php echo $datemodifiedClass;?>">Last Modified</a></th>
                </tr>
             </thead>
             <tbody>

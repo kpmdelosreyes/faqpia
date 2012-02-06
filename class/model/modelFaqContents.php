@@ -30,7 +30,7 @@ class modelFaqContents extends Model
 
     }
     
-    
+
     function insertContents($aData)
     {
         $sQuery = "INSERT INTO faqpia_contents (category, question, answer, author, status, date_created, date_modified) 
@@ -84,7 +84,7 @@ class modelFaqContents extends Model
     function UpdateData($aData)
     {
         $sQuery = "UPDATE faqpia_contents SET category ='".$aData[category]."', question = '".$aData[question]."' , answer = '".$aData[answer]."' , author = '".$aData[author]."', status = '".$aData[status]."',
-                   date_modified = ". time() . " WHERE idx=".$aData['idx'];
+                   date_created = ". time() . ", date_modified = ". time() . " WHERE idx=".$aData['idx'];
 
         return $this->query($sQuery);
     }

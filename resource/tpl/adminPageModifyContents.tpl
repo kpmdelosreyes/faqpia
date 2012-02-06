@@ -29,10 +29,10 @@
             <span id="category_checked_wrapper">
                 <div id="category_wrap">
                  
-                    <input type="checkbox" name="category_checked[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="1"  <?php foreach ($category as $key => $val) { if($val == 1) echo "checked";  } ?> />Our Services <br />
-                    <input type="checkbox" name="category_checked[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="2"  <?php foreach ($category as $key => $val) { if($val == 2) echo "checked";  } ?>/>Our Products <br />
-                    <input type="checkbox" name="category_checked[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="3"  <?php foreach ($category as $key => $val) { if($val == 3) echo "checked";  } ?>/>Account Management <br />
-                    <input type="checkbox" name="category_checked[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="4"  <?php foreach ($category as $key => $val) { if($val == 4) echo "checked";  } ?> />Recruit
+                    <input type="checkbox" name="category" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="1"  <?php foreach ($category as $key => $val) { if($val == 1) echo "checked";  } ?> />Our Services <br />
+                    <input type="checkbox" name="category" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="2"  <?php foreach ($category as $key => $val) { if($val == 2) echo "checked";  } ?>/>Our Products <br />
+                    <input type="checkbox" name="category" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="3"  <?php foreach ($category as $key => $val) { if($val == 3) echo "checked";  } ?>/>Account Management <br />
+                    <input type="checkbox" name="category" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="4"  <?php foreach ($category as $key => $val) { if($val == 4) echo "checked";  } ?> />Recruit
                 </div>
             </span>
         </td>
@@ -64,5 +64,8 @@
 </form>
 <br /><br />
 
-<a href="javascript: void(0);" class="btn_apply" title="Save changes" onclick="javascript: adminPageQuestionEdit.CheckForm();">Save</a>
+<a href="javascript: void(0);" class="btn_apply" title="Save changes" onclick="javascript: adminPageModifyContents.saveContents();">Save</a>
 <a href="javascript: void(0);" class="add_link" title="Return to List" onclick="javascript: window.location.href = '/admin/sub/?module=FaqpiaPageContentsList';">Return to List</a>
+
+
+
