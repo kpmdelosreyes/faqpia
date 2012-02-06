@@ -6,7 +6,7 @@ var adminPageAddContents = {
     
     mostAction : function()
     {
-        window.location.href = "http://ubsdktest1.cafe24test.com/admin/sub/?module=FaqpiaPageAddContents";
+    	window.location.href = usbuilder.getUrl("adminPageAddContents");
     },
 		
     saveContents : function()

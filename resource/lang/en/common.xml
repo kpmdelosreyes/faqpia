@@ -2,14 +2,18 @@
 <lang>
     <menu>  
         <var name="faqpia">FAQPia</var>
+        <var name="faqpia_questions">Questions</var>
         <var name="faqpia_add">Add New Question</var>
+        <var name="faqpia_modify">Modify Question</var>
+        <var name="faqpia_category">Categories</var>
+        <var name="faqpia_addcategory">Add New Category</var>
+        <var name="faqpia_modifycategory">Edit Category</var>
         <mostbutton>
             <var param="FaqpiaPageContentsList">Add New Question</var>
-            <var param="FaqpiaPageAddContents">Add New Question</var>
+            <var param="FaqpiaPageCategoryList">Add New Category</var>
         </mostbutton>
     </menu>
     <var name="lang">Language</var>
     <var name="name">English</var>
 </lang>
-
 

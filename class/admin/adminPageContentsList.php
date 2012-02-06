@@ -7,6 +7,11 @@ class adminPageContentsList extends Controller_Admin
         $sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
         $this->writeJs($sInitScript);
 
+        $sFormScript = usbuilder()->getFormAction('faqpia_add','adminExecSearchContent');
+        $this->writeJs($sFormScript);
+        
+        usbuilder()->validator(array('form' => 'faqpia_add'));
+                
         $iRows = 10;
         $iPage = $aArgs['page'] ? $aArgs['page'] : 1;
         $aOption['limit'] = $iRows;

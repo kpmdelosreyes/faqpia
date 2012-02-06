@@ -48,17 +48,25 @@ class modelFaqContents extends Model
    
     function deleteContents($sIdx)
     {
-
-        $sQuery = "Delete FROM faqpia_contents WHERE idx IN($sIdx)";
+    	$rest = substr($sIdx, 0,-1);
+        $sQuery = "Delete FROM faqpia_contents WHERE idx IN($rest)";
         return $this->query($sQuery);
-
     }
-
-    function getList()
+    
+    function setPublish($sIdx)
     {
-        $sQuery = "SELECT * FROM faqpia_contents";
-        return $this->query($sQuery);
+    	$rest = substr($sIdx, 0,-1);
+    	$sQuery = "UPDATE faqpia_contents SET status = '1', date_modified = ". time() . " WHERE idx IN($rest)";
+    	return $this->query($sQuery);
     }
+    
+    function setUnpublish($sIdx)
+    {
+    	$rest = substr($sIdx, 0,-1);
+    	$sQuery = "UPDATE faqpia_contents SET status = '0', date_modified = ". time() . " WHERE idx IN($rest)";
+    	return $this->query($sQuery);
+    }
+
 
     function getIdx($idx)
     {
@@ -69,7 +77,7 @@ class modelFaqContents extends Model
     function UpdateData($aData)
     {
         $sQuery = "UPDATE faqpia_contents SET category ='".$aData[category]."', question = '".$aData[question]."' , answer = '".$aData[answer]."' , author = '".$aData[author]."', status = '".$aData[status]."',
-                  date_created= ". time() . ", date_modified = ". time() . " WHERE idx=".$aData['idx'];
+                   date_modified = ". time() . " WHERE idx=".$aData['idx'];
 
         return $this->query($sQuery);
     }

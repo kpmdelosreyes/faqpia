@@ -8,7 +8,7 @@
     <div id="validation_message" class="msg_warn_box" style="display:none"></div><div id='faqpia_delete_popup_contents' style='display:none'>
         <div class="admin_popup_contents">
             Are you sure you want to delete this entry?<br /><br />
-            <a class="btn_nor_01 btn_width_st1" href="javascript: void(0);" style='cursor:pointer' title="Delete" onclick="javascript: adminPageContentsList.deleteCheckedValues();"> Delete <a/>
+            <a class="btn_nor_01 btn_width_st1" href="javascript: void(0);" style='cursor:pointer' title="Delete" onclick="javascript: adminPageContentsList.deleteCheckedvalues();"> Delete </a>
         </div>
     </div>  
 
@@ -22,7 +22,7 @@
             <option value="2">Unpublish</option>
             <option value="3">Delete</option>
         </select>
-        <a href="javascript: void(0);" onclick="javascript: adminPageContentsList.apply(this);" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Apply</a>
+        <a href="javascript: void(0);" onclick="javascript: adminPageContentsList.apply();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Apply</a>
         <select id="categories" style="width:150px;">
             <option value="1">Our Services</option>
             <option value="2">Our Products</option>
@@ -30,10 +30,13 @@
             <option value="4">Recruit</option>
         </select>
         <a href="javascript: void;" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&category=' + $('#categories').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Filter</a>
-        <span id="search_post" class="spn_search">
-            <input type="text" title="Questions or answers" class="input_text" value="" id="keyword" maxlength="250" />
-            <a href="#none" onclick="javascript: adminPageContentsList.SearchPost(<?php echo usbuilder()->getUrl("adminPageContentsList");?>);" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
-        </span>
+        <form name="faqpia_search" class="faqpia_search" method="post" enctype="multipart/form-data">
+	        <span id="search_post" class="spn_search">
+	            <input type="text" title="Questions or answers" class="input_text" value="" id="keyword" maxlength="250" />
+	            <a href="#none" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&search=' + $('#keyword').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
+	        </span>
+        </form>
+
         <br />
         <br />
         <table border="1" cellpadding="0" cellspacing="0" class="table_hor_02">
@@ -59,7 +62,7 @@
                  <?php foreach ($aContentsList as $key => $val): ?>
                 <tr class="event_mouse_over">
                    
-                        <td><input type="checkbox" class="input_chk" name="adminPageQuestionid[]" value="<?php echo $val['idx'];?>" /></td>
+                        <td><input type="checkbox" class="input_chk" name="checkThis" value="<?php echo $val['idx'];?>" /></td>
                         <td><?php echo $val['num'];?></td>
                         <td><?php echo $val['categories'];?></td>
                         <td><a href="<?php echo usbuilder()->getUrl("adminPageModifyContents"). '&idx=' . $val['idx']; ?>"  title="View Post"><?php echo $val['question'];?></a></td>

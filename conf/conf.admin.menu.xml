@@ -1,7 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?> 
-    <adminmenus>
-        <menu name="FAQPia" lang="faqpia" param="FaqpiaPageContentsList" use_most_action="Y">
-            <page lang="faqpia" param="FaqpiaPageAddContents" use_most_action="Y" /> 
-            <page lang="faqpia" param="FaqpiaPageModifyContents" use_most_action="Y" /> 
+<?xml version="1.0" encoding="utf-8"?>
+<adminmenus>
+    <menu lang="faqpia">
+        <menu lang="faqpia_questions" param="FaqpiaPageContentsList" use_most_action="Y">
+            <page lang="faqpia_add" param="FaqpiaPageAddContents" />    
+            <page lang="faqpia_modify" param="FaqpiaPageModifyContents" />    
         </menu>
-    </adminmenus>
+        <menu lang="faqpia_category" param="FaqpiaPageCategoryList" use_most_action="Y">
+            <page lang="faqpia_addcategory" param="FaqpiaPageAddCategory" />
+            <page lang="faqpia_modifycategory" param="FaqpiaPageModifyCategory" />
+        </menu>
+    </menu>
+</adminmenus>
