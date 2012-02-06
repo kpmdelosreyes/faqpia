@@ -5,33 +5,34 @@
     <!-- end of messagebox -->
 
     <!--  print Validation Message -->
-    <div id="validation_message" class="msg_warn_box" style="display:none"></div><div id='samplejulius_delete_popup_contents' style='display:none'>
+    <div id="validation_message" class="msg_warn_box" style="display:none"></div><div id='faqpia_delete_popup_contents' style='display:none'>
         <div class="admin_popup_contents">
             Are you sure you want to delete this entry?<br /><br />
-            <a class="btn_nor_01 btn_width_st1" href="javascript: void(0);" style='cursor:pointer' title="Delete" onclick="javascript: adminPageQuestionList.DeleteCheckedValues();;"> Delete <a/>
+            <a class="btn_nor_01 btn_width_st1" href="javascript: void(0);" style='cursor:pointer' title="Delete" onclick="javascript: adminPageContentsList.deleteCheckedValues();"> Delete <a/>
         </div>
     </div>  
 
-        <a href="/admin/sub/?module=FaqjuliusPageQuestionList" class="all selected" title="Show all questions">All(11)</a> &nbsp; | &nbsp;
-        <a href="/admin/sub/?module=FaqjuliusPageQuestionList&status=Published"  title="Show published questions only">Published(11)</a> &nbsp; | &nbsp;
-        <a href="/admin/sub/?module=FaqjuliusPageQuestionList&status=Unpublished"  title="Show unpublished questions only">Unpublished(0)</a><br /><br />
+        <a href="<?php echo usbuilder()->getUrl("adminPageContentsList");?>" class="all selected" title="Show all questions">All(<?php echo $total;?>)</a> &nbsp; | &nbsp;
+        <a href="<?php echo usbuilder()->getUrl("adminPageContentsList").'&status=Published';?>"  title="Show published questions only">Published(<?php echo $published;?>)</a> &nbsp; | &nbsp;
+        <a href="<?php echo usbuilder()->getUrl("adminPageContentsList").'&status=Unpublished';?>"  title="Show unpublished questions only">Unpublished(<?php echo $unpublished;?>)</a><br /><br />
+        
         <select id="actions" style="width:150px;">
             <option value="0">Select Action</option>
             <option value="1">Publish</option>
             <option value="2">Unpublish</option>
             <option value="3">Delete</option>
         </select>
-        <a href="javascript: void(0);" onclick="javascript: adminPageQuestionList.apply();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Apply</a>
+        <a href="javascript: void(0);" onclick="javascript: adminPageContentsList.apply(this);" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Apply</a>
         <select id="categories" style="width:150px;">
             <option value="1">Our Services</option>
             <option value="2">Our Products</option>
             <option value="3">Account Management</option>
             <option value="4">Recruit</option>
         </select>
-        <a href="javascript: void;" onclick="javascript: window.location.href = '/admin/sub/?module=FaqjuliusPageQuestionList&category=' + $('#categories').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Filter</a>
+        <a href="javascript: void;" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&category=' + $('#categories').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Filter</a>
         <span id="search_post" class="spn_search">
             <input type="text" title="Questions or answers" class="input_text" value="" id="keyword" maxlength="250" />
-            <a href="#none" onclick="javascript: adminPageQuestionList.SearchPost('/admin/sub/?module=FaqjuliusPageQuestionList');" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
+            <a href="#none" onclick="javascript: adminPageContentsList.SearchPost(<?php echo usbuilder()->getUrl("adminPageContentsList");?>);" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
         </span>
         <br />
         <br />
@@ -45,7 +46,7 @@
             </colgroup>
             <thead>
                <tr>
-                    <th class="chk"><input type="checkbox" class="input_chk chk_all" onchange="javascript: adminPageQuestionList.CheckAll();"/></th>
+                    <th class="chk"><input type="checkbox" class="input_chk chk_all" onchange="javascript: adminPageContentsList.checkAll(this);"/></th>
                     <th width="10px">No.</th>
                     <th width="200px"><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=category&sort=desc" class="asc">Category</a></th>
                     <th><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=question&sort=desc" class="asc">Question</a></th>
@@ -75,3 +76,4 @@
         <div class="tbl_btom_rgt"><a href="<?php echo usbuilder()->getUrl("adminPageAddContents");?>" class="btn_nor_01 btn_width_st2" title="Add">Add</a></div>        
         <div class="pagination"><?php echo $sPagination;?></div>
 
+    

@@ -1,0 +1,6 @@
+#category_wrap {width:262px;padding:18px;border:1px solid #dfdfde;background:#fff;display:inline-block}
+#category_wrap input {margin:0 4px 5px 0}
+.module_title {font-weight:bold}
+.btn_ly		   {width:120px !important;height:21px;line-height:21px;display:inline-block;margin:0 auto;padding:0;border-top:1px solid #e0e0e0;border-right:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0;border-left:1px solid #e0e0e0;
+				background:url(../_sdk/img/faqpia/image.gif) repeat-x;font-weight:bold;color:#777;vertical-align:middle;text-decoration:none !important}
+.btn_ly:hover {text-decoration:none} 

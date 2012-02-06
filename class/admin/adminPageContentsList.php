@@ -11,13 +11,17 @@ class adminPageContentsList extends Controller_Admin
         $iPage = $aArgs['page'] ? $aArgs['page'] : 1;
         $aOption['limit'] = $iRows;
         $aOption['offset'] = $iRows * ($iPage - 1);
+        $aOption['category'] = $aArgs['category'] ? $aArgs['category'] : "";
+        $aOption['status'] = ($aArgs['status'] == "Published") ? "1" : "0";
 
         $oModelContents = new modelFaqContents();
         $aContentsList = $oModelContents->getContentsList($aOption);
         $iResultCount = $oModelContents->getResultCount($aOption);
 
         $aCount['total'] = $oModelContents->getResultCount(array());
-
+        $aCountStatus = $oModelContents->getStatus(array());
+        
+        
         $sDateTimeFormat = 'm/d/Y';
         $i = 0;
         foreach($aContentsList as $key => $val)
@@ -25,7 +29,7 @@ class adminPageContentsList extends Controller_Admin
             $aContentsList[$key]['num'] = $iResultCount - $aOption['offset'] - $i;
             $aContentsList[$key]['date_created'] = date($sDateTimeFormat, $aContentsList[$key]['date_created']);
             $aContentsList[$key]['date_modified'] = date($sDateTimeFormat, $aContentsList[$key]['date_modified']);
-            
+
             $aContentsList[$key]['status'] = ($aContentsList[$key]['status'] == "1") ? "Published" : "Unpublished";
             $aCategory = explode("," , $aContentsList[$key]['category']);
                
@@ -38,15 +42,21 @@ class adminPageContentsList extends Controller_Admin
                 $sCategory .= ($value == "4") ? "Recruit" : "";
             }
             $aContentsList[$key]['categories'] = $sCategory;
+            $sCategory = "";
             $i++;
             
         }
 
         $this->assign('sPagination', usbuilder()->pagination($iResultCount, $iRows));
         $this->assign('aContentsList', $aContentsList);
+        $this->assign('total', $aCount['total']);
+        $this->assign('published', $aCountStatus[1]['countStatus']);
+        $this->assign('allpublished', $aStatusFilter1);
+        $this->assign('allunpublished', $aStatusFilter);
+        $this->assign('unpublished', $aCountStatus[0]['countStatus']);
 
     	$this->importJS('default');
-
     	$this->view(__CLASS__);
     }
+
 }
