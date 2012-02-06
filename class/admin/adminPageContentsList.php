@@ -6,23 +6,25 @@ class adminPageContentsList extends Controller_Admin
         require_once('builder/builderInterface.php');
         $sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
         $this->writeJs($sInitScript);
-
-        $sFormScript = usbuilder()->getFormAction('faqpia_add','adminExecSearchContent');
-        $this->writeJs($sFormScript);
-        
-        usbuilder()->validator(array('form' => 'faqpia_add'));
                 
         $iRows = 10;
         $iPage = $aArgs['page'] ? $aArgs['page'] : 1;
         $aOption['limit'] = $iRows;
         $aOption['offset'] = $iRows * ($iPage - 1);
         $aOption['category'] = $aArgs['category'] ? $aArgs['category'] : "";
-        $aOption['status'] = ($aArgs['status'] == "Published") ? "1" : "0";
+        $status = ($aArgs['status'] == "Published") ? "1" : "00";
+        $aOption['status'] = $aArgs['status'] ? $status : "";
+        $aOption['search'] = $aArgs['search'] ? $aArgs['search'] : "";
+        $aOption['sortby'] = $aArgs['sortby'] ? $aArgs['sortby'] : "";
+        $aOption['sort'] = $aArgs['sort'] ? $aArgs['sort'] : "";
 
+        $acatClass = ($aArgs['sort'] == "asc") ? "des" : "asc";
+        $acatClass1 = ($aArgs['sort'] == "asc") ? "desc" : "asc";
+        
         $oModelContents = new modelFaqContents();
         $aContentsList = $oModelContents->getContentsList($aOption);
         $iResultCount = $oModelContents->getResultCount($aOption);
-
+  
         $aCount['total'] = $oModelContents->getResultCount(array());
         $aCountStatus = $oModelContents->getStatus(array());
         
@@ -59,6 +61,8 @@ class adminPageContentsList extends Controller_Admin
         $this->assign('allpublished', $aStatusFilter1);
         $this->assign('allunpublished', $aStatusFilter);
         $this->assign('unpublished', $aCountStatus[0]['countStatus']);
+        $this->assign('catClass', $acatClass);
+        $this->assign('catClass1', $acatClass1);
 
     	$this->importJS('default');
     	$this->view(__CLASS__);

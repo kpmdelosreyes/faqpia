@@ -30,13 +30,24 @@
             <option value="4">Recruit</option>
         </select>
         <a href="javascript: void;" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&category=' + $('#categories').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Filter</a>
-        <form name="faqpia_search" class="faqpia_search" method="post" enctype="multipart/form-data">
-	        <span id="search_post" class="spn_search">
-	            <input type="text" title="Questions or answers" class="input_text" value="" id="keyword" maxlength="250" />
-	            <a href="#none" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&search=' + $('#keyword').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
-	        </span>
-        </form>
-
+        <div class="right_option" style="float:right;text-align:right">
+			<form name="faqpia_search" class="faqpia_search" method="post" enctype="multipart/form-data" style="float:left">
+				<span id="search_post" class="spn_search">
+					<input type="text" title="Questions or answers" class="input_text" value="" id="keyword" maxlength="250" />
+					<a href="#none" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&search=' + $('#keyword').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
+				</span>
+			</form>
+			<p style="margin:20px 0 10px 0">
+				<label for="show_html_value">Show rows</label>
+				<select title="Number of rows" class="rows1" id="show_rows" onchange="javascript: adminPageContentsList.showRows(this.value);">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
+			</p>
+		</div>
         <br />
         <br />
         <table border="1" cellpadding="0" cellspacing="0" class="table_hor_02">
@@ -51,11 +62,11 @@
                <tr>
                     <th class="chk"><input type="checkbox" class="input_chk chk_all" onchange="javascript: adminPageContentsList.checkAll(this);"/></th>
                     <th width="10px">No.</th>
-                    <th width="200px"><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=category&sort=desc" class="asc">Category</a></th>
-                    <th><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=question&sort=desc" class="asc">Question</a></th>
-                    <th width="150px"><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=status&sort=desc" class="asc">Status</a></th>
-                    <th width="150px"><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=date_created&sort=desc" class="asc">Date Posted</a></th>
-                    <th width="150px"><a href="/admin/sub/?module=FaqjuliusPageQuestionList&sortby=date_modified&sort=desc" class="asc">Last Modified</a></th>
+                    <th width="200px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=category&sort='.$catClass1 ;?>" class="<?php echo $catClass;?>">Category</a></th>
+                    <th><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=question&sort='.$catClass1 ;?>" class="<?php echo $catClass;?>">Question</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=status&sort='.$catClass1;?>" class="<?php echo $catClass;?>">Status</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_created&sort=' .$catClass1;?>" class="<?php echo $catClass;?>">Date Posted</a></th>
+                    <th width="150px"><a href="<?php echo usbuilder()->getUrl("adminPageContentsList") .'&sortby=date_modified&sort='.$catClass1;?>" class="<?php echo $catClass;?>">Last Modified</a></th>
                </tr>
             </thead>
             <tbody>

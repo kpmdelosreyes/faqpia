@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+	
 });
 
 var adminPageContentsList = {
@@ -85,5 +85,4 @@ var adminPageContentsList = {
         });
 
 	}
-
 }

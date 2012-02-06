@@ -6,6 +6,10 @@ class modelFaqContents extends Model
     {
         $sQuery = "SELECT * FROM faqpia_contents";
         
+        if($aOption['search'] != false)
+        {
+        	$sQuery .= " WHERE question LIKE '%".$aOption[search]."%' OR answer LIKE '%".$aOption[search]."%' ";
+        }
         if($aOption['status'] != false)
         {
         	$sQuery .= " WHERE status =".$aOption[status];
@@ -14,7 +18,10 @@ class modelFaqContents extends Model
         {
         	$sQuery .= " WHERE category LIKE '%".$aOption[category]."%' ";
         }
-        $sQuery .= " ORDER BY date_created DESC";
+        if ($aOption['sortby']) {
+        	$sQuery .= " ORDER BY $aOption[sortby] $aOption[sort]";
+        }
+
         if ($aOption['limit']) {
                 $sQuery .= " LIMIT $aOption[offset], $aOption[limit]";
         }
@@ -22,7 +29,8 @@ class modelFaqContents extends Model
         return $this->query($sQuery);
 
     }
-
+    
+    
     function insertContents($aData)
     {
         $sQuery = "INSERT INTO faqpia_contents (category, question, answer, author, status, date_created, date_modified) 
@@ -45,7 +53,6 @@ class modelFaqContents extends Model
   
     }
     
-   
     function deleteContents($sIdx)
     {
     	$rest = substr($sIdx, 0,-1);
