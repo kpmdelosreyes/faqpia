@@ -10,7 +10,7 @@ class adminPageAddContents extends Controller_Admin
         $sFormScript = usbuilder()->getFormAction('faqpia_add','adminExecContentSave');
         $this->writeJs($sFormScript);
         
-        usbuilder()->validator(array('form' => 'simpleapp_add'));
+        usbuilder()->validator(array('form' => 'faqpia_add'));
 
         $this->importJS('faqpia');
         $this->view(__CLASS__);

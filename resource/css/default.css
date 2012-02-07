@@ -1,1 +1,76 @@
-.table_hor_02 td.td_fix {text-align:left}
+@CHARSET "ISO-8859-1";
+* { margin: 0; padding: 0; }
+
+ span, li, div { line-height: 1em;}
+
+
+.btn_apply:link, .btn_apply:visited {background: url("/_sdk/img/faqbarry/bg_btn_input.gif") repeat-x scroll 0 0 #000000;border: medium none; color: #FFFFFF;display: inline-block;font-size: 13px;font-weight: bold;padding: 4px 36px 5px 35px;text-decoration: none !important;vertical-align: middle;}
+a:link, a:visited {line-height: normal;text-decoration: none;}
+a { color: #3C7CB4;}
+input { border: 1px solid #CCCCCC;color: #777777;font-family: verdana,arial,sans-serif;font-size: 11px;height: 17px;padding: 1px 0 0;}
+input.btn_apply {height:30px;background: url("/_sdk/img/faqbarry/bg_btn_input.gif") repeat-x scroll 0 0 #000000;border: medium none; color: #FFFFFF;display: inline-block;font-size: 13px;font-weight: bold;padding: 3px 31px 5px 30px;text-decoration: none !important;vertical-align: middle;font-family: 'Lucida Sans Unicode','Lucida Grande',tahoma,verdana,arial,sans-serif;cursor:pointer;}
+
+input, select { vertical-align: middle;}
+
+select { color: #777777;font-family: verdana,arial,sans-serif;font-size: 11px;}
+
+.middle_wrap { float: left;width: 100%;}
+.mar_bottom_20 { margin-bottom: 20px;}
+
+.ul_input_vr select { margin-right: 7px;}
+
+#categories_wrap:after {clear: both;content: "";display: block;}
+#categories_wrap:after {clear: both;content: "";display: block;}
+#categories_wrap { height: auto !important;min-height: 663px;z-index: 10;padding: 20px 20px 24px;background: none repeat scroll 0 0 #F1F1F1;border: 1px solid #DDDDDD;}
+
+#id_category_dnd_area ul li {height:19px !important}
+
+#description.section_arr {float: left;position: relative; width: 427px;}
+
+#description.section_arr h3 { float: left;}
+
+#description.section_arr .demo { background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #C8C8C8;float: left;height: auto !important;min-height: 587px;overflow-x: auto;overflow-y: hidden;padding: 28px 0 20px 22px;width: 403px;}
+
+.jstree ul, .jstree li { list-style-type: none;}
+
+.jstree-default .jstree-clicked { background: none repeat scroll 0 0 #BEEBFF;border: 1px solid #99DEFD;padding: 0 2px 0 1px;}
+
+.jstree a {color: black;display: inline-block;height: 16px;line-height: 16px;margin: 0;padding: 1px 2px;text-decoration: none;white-space: nowrap}
+
+.jstree-default a .jstree-icon { background-position: -56px -19px}
+
+.jstree a > .jstree-icon { margin-right: 3px;}
+
+.jstree a > ins { height: 16px;width: 16px;}
+.jstree-default li {float:left !important;width:80%;}
+.jstree-default li, .jstree-default ins, #vakata-dragged.jstree-default .jstree-invalid, #vakata-dragged.jstree-default .jstree-ok, #jstree-marker.jstree-default {}
+
+.jstree-default ins { background-color: transparent;background-image: url("/_sdk/img/faqbarry/d.png");background-repeat: no-repeat;}
+
+.jstree ins { display: inline-block;height: 18px;margin: 0;padding: 0;text-decoration: none;width: 18px;}
+
+.jstree-default .jstree-leaf ins {}
+
+.jstree-default .jstree-leaf > ins { background-position: -36px 0;}
+
+.jstree-default a .jstree-icon { background-position: -56px -19px;}
+
+h3.add_h { clear: left;float: left;}
+
+h3 { font-size: 12px;padding-bottom: 14px; }
+
+#in_wrap .section_info input.fix { width: 248px;}
+
+.ul_input_vr input.fix { width: 300px;}
+
+.ul_input_vr input { padding-left: 0;width: 99%;}
+
+input.fix { width: 300px;}
+
+.ul_input_vr textarea.cate { height: 100px;padding: 10px 0;}
+
+.jstree-default .jstree-clicked { background: none repeat scroll 0 0 #BEEBFF;border: 1px solid #99DEFD;padding: 0 2px 0 1px;}
+
+.jstree-unpublished > a, a:hover { color: #777777;}
+
+.jstree-0 li[rel="unpublished"] > a > .jstree-icon { background-image: url("/_sdk/img/faqbarry/unpublish.gif");background-position: 0 0}

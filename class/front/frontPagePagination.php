@@ -7,25 +7,52 @@ class frontPagePagination extends Controller_Front
 		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
 		$this->writeJs($sInitScript);
 	
-		$iRows = 10;
+		$iRows = $aArgs['category'] ? 5 : 10;
 		$iPage = $aArgs['page'] ? $aArgs['page'] : 1;
 		$aOption['limit'] = $iRows;
 		$aOption['offset'] = $iRows * ($iPage - 1);
-	
-		$sClass = $iPage ? "current" : "next";
 		
+		$aOption['category'] = $aArgs['category'] ? $aArgs['category'] : "";
+		$aOption['search'] = $aArgs['search'] ? $aArgs['search'] : "";
+	
 		$oModelContents = new modelFaqContents();
-		$aList = $oModelContents->getContentsList($aOption);
-		$iResultCount = $oModelContents->getResultCount($aOption);
+		$aList = $oModelContents->getQuestion($aOption);
+		$iResultCount = $oModelContents->getCount($aOption);
+		
+		$uri = preg_replace('/.page=+.[^\?&]*/','',$_SERVER["REQUEST_URI"]);
+        $connector = strpos($_SERVER["SERVER_NAME"].$uri, '?') !== false ? '&' : '?';
+        $href = $uri.$connector."page=";
+        
+        $prev = $iPage - 1;
+        $next = $iPage + 1;
+        
+		$sTotal = ceil($iResultCount / $iRows);
+		$sPagination = array();
+		if($iPage > 1)
+            $sPagination[] = array('sPageUrl' => $href.$prev, 'sPage' => 'prev');
+		
+		for($i=1; $i<=$sTotal; $i++)
+		{
+			$sPagination[] = array('sPage' => $i,
+								   'sPageUrl' => $href.$i,
+								   'sPageClass' => ($i == $iPage) ? "current" : "num"
+			);
+		}
+		
+		if($iPage < $sTotal)
+            $sPagination[] = array('sPageUrl' => $href.$next, 'sPage' => 'next');
+		
 	
-		$aCount['total'] = $oModelContents->getResultCount(array());
-	
-		//usbuilder()->pagination($iResultCount, $iRows)
-		$sTotal = $iResultCount - $iRows;
-	
-		$this->assign('sPageURL', usbuilder()->getUrl("frontPagecontentsList").'?page='.$iPage);
-		$this->assign('sPageIndex' ,$sTotal);
-		$this->assign('sPageClass' , $sClass);
+		if($aList)
+		{
+			$this->loopFetch($sPagination);
+		}
+		else
+		{
+			$this->fetchClear();
+			
+		}
+		
 	
 	}
 	

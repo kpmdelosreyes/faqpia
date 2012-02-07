@@ -8,22 +8,29 @@ class frontPagecontentsList extends Controller_Front
 		$sInitScript = usbuilder()->init($this->Request->getAppID(), $aArgs);
 		$this->writeJs($sInitScript);
 		
-		$iRows = 10;
+		$iRows = $aArgs['category'] ? 5 : 10;
 		$iPage = $aArgs['page'] ? $aArgs['page'] : 1;
 		$aOption['limit'] = $iRows;
 		$aOption['offset'] = $iRows * ($iPage - 1);
+		
 		$aOption['category'] = $aArgs['category'] ? $aArgs['category'] : "";
 		$aOption['search'] = $aArgs['search'] ? $aArgs['search'] : "";
 		
 		$oModelContents = new modelFaqContents();
-        $aList = $oModelContents->getContentsList($aOption);
-        $iResultCount = $oModelContents->getResultCount($aOption);
+        $aList = $oModelContents->getQuestion($aOption);
+        $iResultCount = $oModelContents->getCount($aOption);
   
         $aCount['total'] = $oModelContents->getResultCount(array());
+				
+		if($aList)
+		{
+			$this->loopFetch($aList);
+		}
+		else
+		{
+			$this->fetchClear();
 		
-	
-		$this->loopFetch($aList);
-	
+		}
 	}
 }
 

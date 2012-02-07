@@ -89,5 +89,53 @@ class modelFaqContents extends Model
         return $this->query($sQuery);
     }
     
+    /************* Front ***************/
     
+    
+    function getQuestion($aOption)
+    {
+    	$sQuery = "SELECT * FROM faqpia_contents";
+    
+    	if($aOption['search'] != false)
+    	{
+    		$sQuery .= " WHERE question LIKE '%".$aOption[search]."%' OR answer LIKE '%".$aOption[search]."%' ";
+    	}
+    	if($aOption['category'] != false)
+    	{
+    		$sQuery .= " WHERE category LIKE '%".$aOption[category]."%' ";
+    	}
+    	
+    	$sQuery .= " ORDER BY date_created DESC";
+    	
+    	if($aOption['limit'] != false)
+    	{
+    		$sQuery .= " LIMIT $aOption[offset], $aOption[limit]";
+    	}
+   
+    	return $this->query($sQuery);
+    
+    }
+   
+    function getCount($aOption)
+    {
+    	$sQuery = "SELECT count(*) as count FROM faqpia_contents";
+    
+    	if($aOption['search'] != false)
+    	{
+    		$sQuery .= " WHERE question LIKE '%".$aOption[search]."%' OR answer LIKE '%".$aOption[search]."%' ";
+    	}
+    	if($aOption['category'] != false)
+    	{
+    		$sQuery .= " WHERE category LIKE '%".$aOption[category]."%' ";
+    	}
+    	   
+    	$mResult = $this->query($sQuery);
+    	return $mResult[0]['count'];
+    } 
+    
+    function getAnswer($idx)
+    {
+    	$sQuery = "SELECT question, answer FROM faqpia_contents WHERE idx =".$idx;
+    	return $this->query($sQuery);
+    }
 }
