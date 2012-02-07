@@ -28,10 +28,10 @@
                 <td>
                     <span id="category_checked_wrapper">
                         <div id="category_wrap">
-                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="1" />Our Services <br />
-                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="2" />Our Products <br />
-                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="3" />Account Management <br />
-                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;" value="4" />Recruit
+                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;margin-right:5px" value="1" />Our Services <br />
+                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;margin-right:5px" value="2" />Our Products <br />
+                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;margin-right:5px" value="3" />Account Management <br />
+                            <input type="checkbox" name="category[]" class="category_checked" style="width: 12px; padding: 1px 5px 1px 15px; border: none;margin-right:5px" value="4" />Recruit
                         </div>
                     </span>
                 </td>

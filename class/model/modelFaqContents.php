@@ -28,8 +28,7 @@ class modelFaqContents extends Model
 
         return $this->query($sQuery);
 
-    }
-    
+    }    
 
     function insertContents($aData)
     {
@@ -73,7 +72,8 @@ class modelFaqContents extends Model
     	$sQuery = "UPDATE faqpia_contents SET status = '0', date_modified = ". time() . " WHERE idx IN($rest)";
     	return $this->query($sQuery);
     }
-
+	
+    /**************** for update *******************/
 
     function getIdx($idx)
     {
@@ -84,9 +84,10 @@ class modelFaqContents extends Model
     function UpdateData($aData)
     {
         $sQuery = "UPDATE faqpia_contents SET category ='".$aData[category]."', question = '".$aData[question]."' , answer = '".$aData[answer]."' , author = '".$aData[author]."', status = '".$aData[status]."',
-                   date_created = ". time() . ", date_modified = ". time() . " WHERE idx=".$aData['idx'];
+                   date_modified = ". time() . " WHERE idx=".$aData['idx'];
 
         return $this->query($sQuery);
     }
-   
+    
+    
 }

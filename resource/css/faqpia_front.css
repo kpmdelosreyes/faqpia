@@ -1,0 +1,86 @@
+/* From Ms. Cini's CSS*/
+@charset "utf-8";
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	input[type=file] {border:0;background:transparent !important} /* for chrome input=type */
+}
+/*----------------------reset style----------------------*/
+* {padding:0; margin:0;}
+html, body {height:100%}
+body {background:#f7f7f6;font-family:'Lucida Grande', tahoma, verdana, arial, sans-serif; font-size:12px; color:#444;}
+ul, ol, dl {list-style:none;}
+input, select {vertical-align:middle;}
+img, fieldset {border:0;}
+p, span, li, div {line-height:1.0em}
+input[type=image] {margin:0 !important;padding:0 !important;border:0 !important}
+input {border: 1px solid #CCCCCC;color: #777777;font-family: verdana,arial,sans-serif;font-size: 11px;height: 17px;padding: 1px 0 0;}
+a:link, a:visited {text-decoration:none;line-height:normal}
+a:hover, a:active {text-decoration:underline;line-height:normal}
+a {color: #3C7CB4;}
+
+/*---------------------- common style ----------------------*/
+select {font-size:11px !important;color:#777 !important;height:19px;font-family:verdana, arial, sans-serif !important}
+
+/* title */
+h2.page_title {float:left;padding:0 0 5px 0;font-size:25px;font-weight:normal;color:#dc4e22;line-height:28px;font-family:Tahoma;}
+
+/* sub page 
+.page_header				{overflow:hidden;width:100%;margin-bottom:20px}
+.page_header .add			{display:block;float:left;margin-left:20px;line-height:30px}
+.page_header a				{color:#777}
+*/
+/*---------------------- pagination ----------------------*/
+.pagination	{clear:both;width:100%;padding:10px 0 0 0;font-size:11px;text-align:center}
+.pagination	span {display:inline-block;margin:0 2px;color:#777;padding:1px 4px 2px}
+.pagination	a {display:inline-block;margin:0 2px;padding:1px 4px 2px;color:#828282;text-decoration:none;}
+.pagination	a:hover, .pagination a:active {color:#3c7cb4}
+.pagination	a.num {border:1px solid #c2c2c1;background:#e8e8e7}
+.pagination	a.num:hover, .pagination	a.num:active {color:#777;border:1px solid #c2c2c1;background:#fff}
+.pagination a.current {color:#fff;border:1px solid #2e689a;background:#3c7cb4}
+.pagination a.activity {color:#3c7cb4}
+
+/*---------------------- button ----------------------*/
+.btn_nor_01 	{overflow:hidden;display:inline-block;height:12px;padding:1px 12px 5px 12px;border-width:1px;border-style:solid;border-color:#ccc #aaa #aaa #ccc;
+					 background:#ddd url(../images/bg_button.gif) repeat-x;font-size:12px;text-align:center;vertical-align:middle;}
+.btn_nor_01:link, .btn_nor_01:visited {color:#444 !important;text-decoration:none !important}
+.btn_nor_01:hover, .btn_nor_01:active {background:url(../images/bg_button.gif) right repeat-x;color:#dc4e22 !important;text-decoration:none;}
+
+
+/* FAQ */
+#myFaq_wrap {width:792px;display:inline-block;text-align:left}
+#myFaq_wrap h3.myFaq_header {font-size:25px;line-height:28px;border-bottom:1px solid #ddd;padding-bottom:20px;}
+
+.question_wrap {margin-top:30px;text-align:center;border:1px solid #c7dae7;width:100%;height:80px;display:inline-block}
+.faq_question {width:100%;display:inline-block;height:37px;line-height:37px;border-bottom:1px solid #c7dae7;background:#dfe9f0}
+.faq_question span {vertical-align:middle;}
+.question_wrap input {width:429px;height:19px;display:inline-block}
+
+.faq_menu_wrap {height:42px}
+.faq_nav {margin-top:10px;display:inline-block}
+.faq_nav li {display:inline;float:left;margin:0 45px 0 45px;}
+.faq_nav li a {font-weight:bold;color:#414141;}
+
+.question_lists {width:100%;margin-top:20px;display:inline-block}
+.question_lists ul li {position:relative;padding:6px 0 6px 0;border:1px solid #e0e0e0;display:inline-block;width:100%;margin-bottom:15px;background:#f2f2f2}
+.question_lists ul li a.question, .question_lists ul li span.question {width:90%;margin-left:1%;line-height:15px;display:inline-block;float:left;color:#414141;font-weight:bold}
+.question_lists ul li .q_mark {width:15px;vertical-align:top;margin-left:10px;float:left;line-height:15px;color:#414141;font-weight:bold}
+.question_lists ul li a:hover.question {color:#bbb}
+.question_lists ul li a.print_option {position:absolute;top:5px;right:10px;}
+.question_lists ul li a.print_option img {display:block}
+
+
+.display_question {margin-bottom:20px}
+.display_question h3 {clear:right;color:#4eae0c;font-size:15px;margin-bottom:15px}
+.display_question p.text {color:#756b75}
+.select_btn {float:right;}
+/*
+.faq_detailed {position:relative;border:1px solid #e0e0e0;display:inline-block;width:100%;margin-bottom:15px;background:#f2f2f2;}
+.faq_detailed .q_mark {padding:9px 0 9px 0;width:15px;margin-left:10px;float:left;line-height:15px;color:#414141;font-weight:bold}
+.faq_detailed span.question {width:90%;padding:9px 0 9px 0;float:left;display:inline-block;margin-left:10px;line-height:15px;color:#414141;font-weight:bold}
+
+*/
+
+.faq_answer {display:inline-block}
+.faq_answer span {float:left;display:inline-block}
+.faq_answer span.a_mark {margin-left:10px;width:20px;color:#414141;line-height:21px;font-weight:bold}
+.faq_answer span.description {width:762px;color:#919191;line-height:21px}
+#myFaq_wrap a.link01 {display:inline-block;margin-top:8px;color:#357ec7}

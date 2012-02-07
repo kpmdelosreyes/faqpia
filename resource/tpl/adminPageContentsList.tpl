@@ -37,7 +37,7 @@
 					<a href="#none" onclick="javascript: window.location.href = '<?php echo usbuilder()->getUrl("adminPageContentsList");?>&search=' + $('#keyword').val();" class="btn_nor_01 btn_width_st1" title="Filter by selected condition">Search</a>
 				</span>
 			</form>
-			<p style="margin:20px 0 10px 0">
+			<!-- <p style="margin:20px 0 10px 0">
 				<label for="show_html_value">Show rows</label>
 				<select title="Number of rows" class="rows1" id="show_rows" onchange="javascript: adminPageContentsList.showRows(this.value);">
 					<option value="10">10</option>
@@ -46,7 +46,7 @@
 					<option value="50">50</option>
 					<option value="100">100</option>
 				</select>
-			</p>
+			</p> -->
 		</div>
         <br />
         <br />
@@ -70,24 +70,28 @@
                </tr>
             </thead>
             <tbody>
+            <?php if(!$aContentsList){ ?>
+            	 <tr class="event_mouse_over">
+                    <td colspan="7" align="center"> No record(s) found.</td>
+                </tr>
+            <?php }else{ ?>
                  <?php foreach ($aContentsList as $key => $val): ?>
                 <tr class="event_mouse_over">
                    
                         <td><input type="checkbox" class="input_chk" name="checkThis" value="<?php echo $val['idx'];?>" /></td>
                         <td><?php echo $val['num'];?></td>
                         <td><?php echo $val['categories'];?></td>
-                        <td><a href="<?php echo usbuilder()->getUrl("adminPageModifyContents"). '&idx=' . $val['idx']; ?>"  title="View Post"><?php echo $val['question'];?></a></td>
+                        <td class="td_fix" style="text-align:left"><a href="<?php echo usbuilder()->getUrl("adminPageModifyContents"). '&idx=' . $val['idx']; ?>"  title="View Post"><?php echo $val['question'];?></a></td>
                         <td><?php echo $val['status'];?></td>
                         <td><?php echo $val['date_created'];?></td>
                         <td><?php echo $val['date_modified'];?></td>
                     
                 </tr>
                 <?php endforeach;?>
+            <?php } ?>
             </tbody>
         </table>
-        <br />
-        
-        <div class="tbl_btom_rgt"><a href="<?php echo usbuilder()->getUrl("adminPageAddContents");?>" class="btn_nor_01 btn_width_st2" title="Add">Add</a></div>        
+        <br /> 
         <div class="pagination"><?php echo $sPagination;?></div>
 
     
