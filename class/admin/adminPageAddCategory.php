@@ -11,6 +11,12 @@ class adminPageAddCategory extends Controller_Admin
         $this->writeJs($sFormScript);
         
         usbuilder()->validator(array('form' => 'faqpia_addcategory'));
+        
+        $oModelContents = new modelFaqCategories();
+        $aCategoryList = $oModelContents->getCategoryList();
+        
+        $this->assign('aCategoryList', $aCategoryList);
+        
         $this->importCSS('default');
         $this->importJS('faqpia_category');
      

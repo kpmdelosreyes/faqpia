@@ -16,7 +16,7 @@ var adminPageAddCategory = {
             document.faqpia_addcategory.submit();
         }
         else{
-            oValidator.generalPurpose.getMessage(false, "Field(s) with asterisk[*] are mandatory.");
+            oValidator.generalPurpose.getMessage(false, "Fill all fields");
         }
     }
 }

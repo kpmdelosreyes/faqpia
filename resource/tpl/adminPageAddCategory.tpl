@@ -15,21 +15,19 @@
     <div id="description" class="section_arr">
         <h3>Drag and drop to rearrange categories.</h3>
 		<div id="id_category_dnd_area" class="demo jstree jstree-0 jstree-focused jstree-default">
+		<form name="faqpia_category" class="faqpia_category" method="post" enctype="multipart/form-data">
 			<ul>
-				<?php
-					foreach($aCategoryList as $val)
-					{
-						echo '<li id="'.$val['idx'].'" class="jstree-leaf" rel="category" ci_idx="134" ci_parents_idx="0" ci_order="1" ci_ml_code="Faq" ci_ms_seq="1" ci_name="'.$val['category_name'].'" ci_publish_flag="Y" 
-								ci_description="'.$val['category_description'].'" ci_seo_idx="val[]" seo_title="New Category" seo_url_key="New-Category" 
-								seo_description="Category Description" seo_keywords="" seo_robots="All" seo_other_header_script="" ci_mode="modify" ci_default_flag="N">
-								<ins class="jstree-icon">&nbsp;</ins>
-								<a class="" href="#" style="-moz-user-select: none;">
-								<ins class="jstree-icon">&nbsp;</ins>
-								'.$val['category_name'].'</a>
-						     </li>';
-					}
-				?>
+				<?php foreach($aCategoryList as $val): ?>
+					<li id="category_id" class="jstree-leaf" rel="category" >
+						<ins class="jstree-icon">&nbsp;</ins>
+						<a id="categories" class="" href="<?php echo usbuilder()->getUrl("adminPageCategoryList"); ?>&idx=<?php echo $val['idx']; ?>" style="-moz-user-select: none;">
+							<ins class="jstree-icon">&nbsp;</ins>
+							<?php echo $val['category_name']; ?>
+						</a>
+				    </li>				
+			     <?php endforeach;?>
 			</ul>
+		</form>
 		</div>
     </div>
     <!-- //Tree Menu -->
@@ -41,75 +39,26 @@
             <h3 class="add_h">Category Information</h3>
             <form name="faqpia_addcategory" class="faqpia_addcategory" method="post" enctype="multipart/form-data">
 
-                <ul class="ul_input_vr">
-                    <li id="id_category_idx" class="displaynone"></li>
-                    <li>
-                        <p>Category Name</p>
-                        <p>
-                            <span id="cate_name_wrap">
-                                <input type="text" name="category_name" class="fix" maxlength="250" />
-                            </span>
-                            <span id="cate_del_wrap">
-                                <a href="#none" onclick="adminPageAddCategory.delConfirm()" class="add_link" title="Delete Category">Delete Category</a>
-                            </span>
-                        </p>
-                    </li>
+					<ul class="ul_input_vr">
+			
+						<li><p>Category Name</p><p>
+								<span id="cate_name_wrap"><input type="text" name="category_name" class="fix" maxlength="250" fw-filter="isFill&isMax[250]" value="" /></span>
+							</p>
+						</li>
+						<li><p>Status</p>
 
-                    <li>
-                        <p>Status</p>
-                        <p>
-                            <select name="category_status">
-                            	<option value="0">Unpublished</option>
-                        		<option value="1">Published</option>
-                            </select>
-                        </p>
-                    </li>
-
-                    <li>
-                        <p>Description</p>
-                        <p><textarea cols="30" rows="5" name="category_description" class="cate"></textarea></p>
-                    </li>
-                </ul>
-
-                <div class="stit_vr_wide">
-                    <h3 class="add_h">
-                        <a href="#none" onclick="adminPageAddCategory.toggle('id_seo_items', adminPageAddCategory.setSeoOnOff);" class="down" title="Search Engine Optimization">Search Engine Optimization                        <span class="vdn" id="id_seo_vdn">▼</span></a>
-                    </h3>
-                                    </div>
-
-                <ul class="ul_input_vr displaynone" id="id_seo_items">
-                    <li>
-                        <p><label for="title">Title</label></p>
-                        <p><input type="text" name="seo_title" class="fix" /></p>
-                    </li>
-                    <li>
-                        <p><label for="url_key">URL Key</label></p>
-                        <p><input type="text" name="seo_url_key" class="fix" /></p>
-                    </li>
-                    <li>
-                        <p><label for="search_desc">Description</label></p>
-                        <p><textarea cols="30" rows="5" name="seo_description" class="cate"></textarea></p>
-                    </li>
-                    <li>
-                        <p>
-                            <label for="keyword">Keywords</label>
-                        </p>
-                        <p><input type="text" name="seo_keywords" class="keyword" /></p>
-                        <span class="annonce_vr">Use commas(,) to seperate keywords.</span>
-                    </li>
-                    <li>
-                        <p><label for="robot">Robots</label></p>
-                        <p>
-                            <select name="seo_robots">
-                            </select>
-                        </p>
-                    </li>
-                    <li>
-                        <p><label for="script">Other header Scripts</label></p>
-                        <p><textarea cols="30" rows="5" name="seo_other_header_script" class="cate"></textarea></p>
-                    </li>
-                </ul>
-
+							<p>
+								<select id="category_status" name="category_status">
+									<option value="0" >Unpublished</option>
+									<option value="1" >Published</option>
+								</select>
+							</p>
+						</li>
+						<li><p>Description</p>
+							<p><textarea cols="30" rows="5" name="category_description" class="cate" id="description" name="description" fw-filter="isFill" fw-label="Description"></textarea></p>
+						</li>
+					 
+					</ul>
             </form>
 
         </div>
