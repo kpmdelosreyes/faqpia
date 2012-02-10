@@ -9,7 +9,7 @@
     <a href="#none" onclick="adminPageCategoryList.saveModifiedcategory();" class="btn_apply" title="Save Changes">Save</a>
     <a href="<?php echo usbuilder()->getUrl("adminPageCategoryList").'&idx='. $aCategory['idx'];?>"  class="add_link" title="Undo Changes">Undo Changes</a>
 </div>
-<div class="tbl_btom_rgt"><a href="<?php echo usbuilder()->getUrl("adminPageAddCategory");?>" class="btn_nor_01 btn_width_st2" title="Add">Add</a></div>
+
 <div id="categories_wrap">
 
     <!-- Tree Menu -->

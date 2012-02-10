@@ -4,6 +4,10 @@ $(document).ready(function(){
 		popup.load('faqpia_deletethis_popup_contents').skin('admin').layer({'title' : 'Delete','width' : 300});
 	});
 	
+	$("#most_action_category").live("click", function(){
+		window.location.href = usbuilder.getUrl("adminPageAddCategory");
+	});
+	
 });
 
 var adminPageCategoryList = {

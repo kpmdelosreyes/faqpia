@@ -13,6 +13,7 @@ var adminPageAddCategory = {
     {
     	if(oValidator.formName.getMessage('faqpia_addcategory'))
         {
+    		
             document.faqpia_addcategory.submit();
         }
         else{

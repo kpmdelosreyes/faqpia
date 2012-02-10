@@ -6,7 +6,7 @@
 <!--  print Validation Message -->
 <div id="validation_message" class="msg_warn_box" style="display:none"></div><div class="mar_bottom_20">
     <a href="#none" onclick="adminPageAddCategory.saveCategory();" class="btn_apply" title="Save Changes">Save</a>
-    <a href="#none" onclick="adminPageAddCategory.undo();" class="add_link" title="Undo Changes">Undo Changes</a>
+    
 </div>
 
 <div id="categories_wrap">
@@ -70,7 +70,7 @@
 
 <div class="tbl_lb_wide_btn">
     <a href="#none" onclick="adminPageAddCategory.saveContents();" class="btn_apply" title="Save Changes">Save</a>
-    <a href="#none" onclick="adminPageAddCategory.undo();" class="add_link" title="Undo Changes">Undo Changes</a>
+  
 </div>
 
 <!-- delete layer -->
