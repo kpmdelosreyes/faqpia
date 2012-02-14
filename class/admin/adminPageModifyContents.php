@@ -18,7 +18,7 @@ class adminPageModifyContents extends Controller_AdminExec
         
         $this->assign("category", $aCategory);
         $this->assign("data", $aResult);
-        $this->importJS('default');
+        $this->importJS("modify");
         $this->view(__CLASS__);
     }
 

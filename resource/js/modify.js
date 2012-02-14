@@ -4,11 +4,7 @@ $(document).ready(function(){
 
 var adminPageModifyContents = {
     
-    mostAction : function()
-    {
-    	window.location.href = usbuilder.getUrl("adminPageModifyContents");";
-    },
-		
+   	
     saveContents : function()
     {
         if(oValidator.formName.getMessage('faqpia_modify'))
